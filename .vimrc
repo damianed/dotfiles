@@ -60,6 +60,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap gd <C-]> 
+nnoremap <leader><space> :nohlsearch<CR>
 
 "" nerdtree config
 nnoremap <leader>n :NERDTreeToggle<CR>
