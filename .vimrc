@@ -61,6 +61,11 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap gd <C-]>
 nnoremap <leader><space> :nohlsearch<CR>
+inoremap { {<CR>}<Esc>ko
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
 
 "" nerdtree config
 nnoremap <C-N> :NERDTreeToggle<CR>
