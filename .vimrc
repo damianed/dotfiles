@@ -44,7 +44,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap gd <C-]>
 nnoremap <leader><space> :nohlsearch<CR>
 inoremap { {<CR>}<Esc>ko
 inoremap ( ()<Esc>i
@@ -105,3 +104,8 @@ augroup MY_GROUP
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+
+"" coc.vim config
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
