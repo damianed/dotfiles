@@ -34,6 +34,8 @@ call plug#begin('~/nvim/plugged')
     """"" ncm2
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
+    Plug 'phpactor/ncm2-phpactor'
+    Plug 'phpactor/phpactor',  {'for': 'php', 'do': 'composer install --no-dev -o', 'tag': '*'}
 
     " enable ncm2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -45,12 +47,14 @@ call plug#begin('~/nvim/plugged')
     " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
-    Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
 
     """""
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'jwalton512/vim-blade'
+    Plug 'arnaud-lb/vim-php-namespace'
+    Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
@@ -78,8 +82,38 @@ nnoremap <leader>a :Ag<CR>
 
 "" ncm2 config
 set shortmess+=c
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+"" vim-blade
+" Define some single Blade directives. This variable is used for highlighting only.
+let g:blade_custom_directives = ['datetime', 'javascript']
+
+" Define pairs of Blade directives. This variable is used for highlighting and indentation.
+let g:blade_custom_directives_pairs = {
+      \   'markdown': 'endmarkdown',
+      \   'cache': 'endcache',
+      \ }
 
 
+"" vim-php-namespaces
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+"" remove white spaces from files
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
