@@ -30,26 +30,7 @@ call plug#begin('~/nvim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'StanAngeloff/php.vim'
     Plug 'morhetz/gruvbox'
-
-    """"" ncm2
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-    Plug 'phpactor/ncm2-phpactor'
-    Plug 'phpactor/phpactor',  {'for': 'php', 'do': 'composer install --no-dev -o', 'tag': '*'}
-
-    " enable ncm2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-
-    " IMPORTANT: :help Ncm2PopupOpen for more information
-    set completeopt=noinsert,menuone,noselect
-
-    " NOTE: you need to install completion sources to get completions. Check
-    " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
-
-    """""
-
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'jwalton512/vim-blade'
