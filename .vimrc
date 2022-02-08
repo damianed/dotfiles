@@ -63,7 +63,7 @@ nnoremap gd <C-]>
 nnoremap <leader><space> :nohlsearch<CR>
 
 "" nerdtree config
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <leader>o :NERDTreeFind<CR>
 
 "" fuzzy finder config
