@@ -23,6 +23,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set mouse=a
+set termguicolors
 
 call plug#begin('~/nvim/plugged')
     Plug 'tpope/vim-fugitive'
@@ -38,7 +39,7 @@ call plug#begin('~/nvim/plugged')
     Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
-autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme gruvbox
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
