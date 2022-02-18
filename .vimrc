@@ -37,6 +37,7 @@ call plug#begin('~/nvim/plugged')
     Plug 'jwalton512/vim-blade'
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'ludovicchabant/vim-gutentags'
+    Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 colorscheme gruvbox
@@ -46,7 +47,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader><space> :nohlsearch<CR>
-inoremap { {<CR>}<Esc>ko
+inoremap { {}<Esc>i
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap " ""<Esc>i
