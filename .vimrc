@@ -24,6 +24,7 @@ set shiftwidth=4
 set expandtab
 set mouse=a
 set termguicolors
+set background=dark
 
 call plug#begin('~/nvim/plugged')
     Plug 'tpope/vim-fugitive'
@@ -42,12 +43,13 @@ call plug#end()
 
 colorscheme gruvbox
 
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader><space> :nohlsearch<CR>
-inoremap { {}<Esc>i
+inoremap {<CR> {<CR>}<Esc>ko
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap " ""<Esc>i
@@ -56,6 +58,7 @@ inoremap ' ''<Esc>i
 "" nerdtree config
 nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <leader>o :NERDTreeFind<CR>
+vnoremap . :norm.<CR>
 
 "" fuzzy finder config
 let $FZF_DEFAULT_COMMAND = 'find .'
@@ -64,6 +67,7 @@ nnoremap <leader>a :Ag<CR>
 
 "" ncm2 config
 set shortmess+=c
+
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
