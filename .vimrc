@@ -18,7 +18,7 @@ runtime! archlinux.vim
 "let skip_defaults_vim=1
 
 let mapleader = ','
-set number
+set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -43,7 +43,6 @@ call plug#end()
 
 colorscheme gruvbox
 
-
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -54,11 +53,13 @@ inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
+vnoremap . :norm.<CR>
+vnoremap <C-Y> "+y
+
 
 "" nerdtree config
 nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <leader>o :NERDTreeFind<CR>
-vnoremap . :norm.<CR>
 
 "" fuzzy finder config
 let $FZF_DEFAULT_COMMAND = 'find .'
@@ -71,6 +72,7 @@ set shortmess+=c
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+" press enter to select an option from the pup up menu
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "" vim-blade
