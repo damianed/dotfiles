@@ -18,7 +18,7 @@ runtime! archlinux.vim
 "let skip_defaults_vim=1
 
 let mapleader = ','
-set relativenumber
+set number relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
