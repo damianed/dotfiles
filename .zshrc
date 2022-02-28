@@ -100,5 +100,7 @@ export PATH="$PATH:/home/damiane/.local/share/gem/ruby/3.0.0/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 alias tas="tmux attach-session -t"
 alias pa="php artisan"
