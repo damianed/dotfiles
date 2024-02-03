@@ -19,8 +19,8 @@ runtime! archlinux.vim
 
 let mapleader = ','
 set number relativenumber
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set mouse=a
 set termguicolors
@@ -117,3 +117,5 @@ augroup END
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> <F10> :split \| :term php artisan test %<CR>:startinsert<CR>
