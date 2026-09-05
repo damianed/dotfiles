@@ -26,6 +26,9 @@ set mouse=a
 set termguicolors
 set background=dark
 
+"" 4 spaces for c/cpp files
+autocmd FileType c,cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
 call plug#begin('~/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdtree'
@@ -37,8 +40,8 @@ call plug#begin('~/nvim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'jwalton512/vim-blade'
     Plug 'arnaud-lb/vim-php-namespace'
-    Plug 'ludovicchabant/vim-gutentags'
     Plug 'airblade/vim-gitgutter'
+    ""Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
 call plug#end()
 
 colorscheme gruvbox
@@ -73,7 +76,9 @@ set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
 " press enter to select an option from the pup up menu
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "" vim-blade
 " Define some single Blade directives. This variable is used for highlighting only.
@@ -119,3 +124,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <silent> <F10> :split \| :term php artisan test %<CR>:startinsert<CR>
+
+"" Windsurf/Codeium auto complete
+"" nnoremap <Leader><Tab> :Codeium Toggle<CR>
+""let g:codeium_manual = v:true
+
