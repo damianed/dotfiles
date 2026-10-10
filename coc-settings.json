@@ -1,5 +1,6 @@
 {
     "pyright.disableDiagnostics": false,
     "clangd.disableCompletion": true,
-    "clangd.fallbackFlags": ["-I/usr/include/SDL2"]
+    "inlayHint.enableParameter": false,
+    "clangd.fallbackFlags": ["-xc", "-std=gnu99", "-Wall", "-I/usr/include/SDL2"]
 }
