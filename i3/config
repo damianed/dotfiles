@@ -283,7 +283,13 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ## App shortcuts
 # bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
+#bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
+
+#screenshot using des_screenshot https://github.com/damianed/des_screenshot
+bindsym Print --release exec --no-startup-id des_screenshot --select -c --save-dir=/tmp/
+bindsym $mod+Print --release exec --no-startup-id des_screenshot -c --save-dir=/home/damian/Pictures/des_screenshots/
+bindsym $mod+Shift+Print --release exec --no-startup-id des_screenshot --window -c --save-dir=/home/damian/Pictures/des_screenshots/
+
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
